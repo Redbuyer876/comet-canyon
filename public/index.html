@@ -118,6 +118,7 @@ button:focus-visible{outline:3px solid var(--mint);outline-offset:3px}
 /* chip in: an optional tip, never a paywall */
 .tog.tip{border-color:var(--mustard);color:var(--mustard)}
 #bTipTitle{position:absolute;top:60px;right:16px}
+.tiprow{display:flex;flex-basis:100%}          /* its own line, right under Start run */
 .overlay.tipsheet{z-index:6;background:#0f0e2b}
 .tog i{font-style:normal}
 .tog b{font-weight:inherit}
@@ -232,6 +233,23 @@ a.btn[aria-disabled="true"]{opacity:.6}
   .slot button{height:26px}
   .board .b-pick .btn{font-size:14px;padding:7px 12px 5px}
 }
+/* short upright phones: tighten the title card to make room for the Chip in line under Start run */
+@media (max-height:660px) and (min-height:521px){
+  #oTitle .card{gap:12px}
+  #oTitle h1{font-size:clamp(40px,11.5vw,104px)}
+  #oTitle .lede{font-size:14px}
+  #oTitle .keys{font-size:13px;gap:2px 14px}
+}
+/* wide screens: Jump to level keeps its place beside Start run, Chip in goes on the line below */
+@media (min-width:600px){
+  .tiprow{order:1}
+}
+/* sideways phones and short wide windows have no spare height: Chip in sits beside Start run,
+   and steps aside once Jump to level shows (the top-right Chip in button stays) */
+@media (max-height:520px), (max-height:660px) and (min-width:600px){
+  .tiprow{flex-basis:auto}
+  .actions:has(.jump:not([hidden])) .tiprow{display:none}
+}
 /* small phones on their side: keep both buttons on one line so the card fits the height */
 @media (max-height:520px) and (min-width:480px) and (max-width:599px){
   .card.end{grid-template-columns:minmax(0,1fr) 200px;column-gap:16px}
@@ -324,6 +342,9 @@ body.is-touch.playing .touch{display:flex}
         <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M7 3h10v11.2a2.8 2.8 0 1 1-2-2.7V7H9v9.2a2.8 2.8 0 1 1-2-2.7z" fill="currentColor"/></svg>
         <span>On</span>
       </button>
+      <div class="tiprow">
+        <button class="tog tip" id="bTipStart" data-tip><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M10 17.5 2.9 10.6a4.4 4.4 0 0 1 6.2-6.3l.9.9.9-.9a4.4 4.4 0 0 1 6.2 6.3z" fill="currentColor"/></svg><span><i>Chip in </i><b>$1</b></span></button>
+      </div>
       <div class="jump" id="tJump" hidden>
         <span>Jump to level</span>
         <button class="chip" data-lv="1" aria-label="Level 2, Squall Steps">2</button>
