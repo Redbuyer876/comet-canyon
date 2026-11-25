@@ -2,31 +2,29 @@
 
 A browser speed platformer. Zuzu the comet fell out of the night sky; run her home through three levels and three storm bosses before the sun comes up.
 
-The whole game is one file, `index.html`. There is nothing to build or install.
+The whole game is one file, `public/index.html`. There is nothing to build or install.
 
 ## Play it locally
 
-Open `index.html` in a browser.
+Open `public/index.html` in a browser.
 
 ## Updating the live site
 
-The site is served by GitHub Pages from the `main` branch.
+The site is hosted on Cloudflare Workers as static files. Only the `public/` folder is published; nothing else in this repo is served. The settings are in `wrangler.jsonc`.
 
-1. Change `index.html`.
-2. Commit and push to `main`.
-3. The live site picks up the change in about a minute. Phones may hold the old copy for up to ten minutes; a refresh fixes that.
+1. Change `public/index.html`.
+2. From this folder, run `npx wrangler deploy`.
+3. The live site picks up the change right away. A refresh shows it.
 
-### First-time hosting setup
+The first time on a new computer, run `npx wrangler login` and approve it in the browser.
 
-In the repository on GitHub: **Settings → Pages → Build and deployment → Source: Deploy from a branch → Branch: `main`, folder `/ (root)` → Save.**
-
-The site address appears on that same page a minute later. Free GitHub accounts can only host Pages from a public repository.
+Commit and push to `main` as well, so GitHub keeps the current copy.
 
 ## Chip in (tips)
 
-The game is free to play. The **Chip in** button on the title and results screens opens a panel where a player picks an amount (it starts at $1) and pays with Cash App or Venmo.
+The game is free to play. The **Chip in** buttons on the title screen (top right and under Start run) and on the results screen open a panel where a player picks an amount (it starts at $1) and pays with Cash App or Venmo.
 
-The settings are near the top of the script in `index.html`, in the `TIP` block:
+The settings are near the top of the script in `public/index.html`, in the `TIP` block:
 
 | Setting | What it is |
 | --- | --- |

@@ -1,12 +1,13 @@
 # Comet Canyon
 
-A browser speed platformer served as a static site by GitHub Pages from the `main` branch.
+A browser speed platformer hosted on Cloudflare Workers as static files. Only the `public/` folder is published.
 
 If `HANDOFF.md` exists in this folder, read it before doing anything else. It is a private, uncommitted file with the full project history, current state and the list of what needs doing.
 
 ## How the project works
 
-- The whole game is `index.html`: styles, markup and script in one file. No build step, no packages. Open the file in a browser to run it.
+- The whole game is `public/index.html`: styles, markup and script in one file. No build step, no packages. Open the file in a browser to run it.
+- Hosting settings are in `wrangler.jsonc`. `npx wrangler deploy` publishes `public/` to the live site. `npx wrangler dev` serves it locally.
 - Keep it one file unless the owner asks otherwise.
 - Sections of the script are marked with `/* ---------- name ---------- */` comments. Search for those instead of relying on line numbers.
 - All music and sound effects are generated in the page with the Web Audio API. There are no audio files.
@@ -14,7 +15,8 @@ If `HANDOFF.md` exists in this folder, read it before doing anything else. It is
 
 ## Rules
 
-- **Pushing to `main` changes the live site.** Ask before pushing.
+- **Deploying changes the live site.** Ask before running `npx wrangler deploy` and before pushing to `main`.
+- **Everything in `public/` is published.** Never put private files, notes or secrets there.
 - **The repo is public.** Never commit secrets, private notes or personal details. `HANDOFF.md` is in `.gitignore` for that reason and must stay out of git.
 - **Tips.** The `TIP` block near the top of the script controls the Chip in panel. Never set `live: true` unless the owner has given the real Cash App and Venmo handles in this session. Never invent or guess a handle. The game stays free to play and the wording stays "Chip in" or "Tip", not "Buy".
 - **Originality.** Characters, art and music are original. Do not copy another game's characters, art or music.
