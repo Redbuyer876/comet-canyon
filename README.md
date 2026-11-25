@@ -13,12 +13,12 @@ Open `public/index.html` in a browser.
 The site is hosted on Cloudflare Workers as static files. Only the `public/` folder is published; nothing else in this repo is served. The settings are in `wrangler.jsonc`.
 
 1. Change `public/index.html`.
-2. From this folder, run `npx wrangler deploy`.
-3. The live site picks up the change right away. A refresh shows it.
+2. Commit and push to `main`.
+3. Cloudflare builds and deploys the push on its own, usually within a minute. A refresh shows the change.
 
-The first time on a new computer, run `npx wrangler login` and approve it in the browser.
+The repo is connected to the `comet-canyon` Worker in the Cloudflare dashboard (Workers & Pages → comet-canyon → Settings → Builds). Build history and logs are under the Worker's Deployments tab.
 
-Commit and push to `main` as well, so GitHub keeps the current copy.
+To deploy by hand instead, run `npx wrangler deploy` from this folder. The first time on a new computer, run `npx wrangler login` and approve it in the browser.
 
 ## Chip in (tips)
 
