@@ -1,0 +1,9 @@
+// Cloudflare Workers settings for Comet Canyon.
+// Only the files inside ./public are published. Nothing else in this repo is served.
+{
+  "name": "comet-canyon",
+  "compatibility_date": "2026-11-24",
+  "assets": {
+    "directory": "./public"
+  }
+}

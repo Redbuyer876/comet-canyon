@@ -1,2 +1,6 @@
 .DS_Store
 HANDOFF.md
+.claude/
+.wrangler/
+node_modules/
+.dev.vars
