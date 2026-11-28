@@ -260,6 +260,15 @@ a.btn[aria-disabled="true"]{opacity:.6}
   .end .result{gap:16px}
   .end .stats{font-size:12px;gap:0 12px}
 }
+/* very short screens (a small phone on its side with the browser bars showing):
+   drop the story line and shrink the title so the card stays below the top buttons */
+@media (max-height:340px){
+  .overlay{padding-top:56px;padding-bottom:10px}
+  #oTitle .card{gap:8px}
+  #oTitle h1{font-size:30px}
+  #oTitle .lede{display:none}
+  #oTitle .keys{font-size:12px}
+}
 @media (max-width:380px){
   #bTipTitle i{display:none}
   .hud{gap:9px;padding:8px 10px}
